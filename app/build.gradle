@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace "com.example.songrecogniser"
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.example.songrecogniser"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    // Room Database
+    implementation "androidx.room:room-runtime:2.6.1"
+    kapt "androidx.room:room-compiler:2.6.1"
+
+    // ACRCloud SDK (Manual addition in libs folder)
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Spotify SDK
+    implementation 'com.spotify.android:auth:1.2.5'
+
+    // Gson for JSON Parsing
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // Lifecycle Components
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.2'
+}
